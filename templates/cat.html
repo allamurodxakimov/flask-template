@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ context.title }}</title>
     <style>
         body{
@@ -48,23 +50,18 @@
             overflow: hidden;
         }
         
-        
     </style>
 </head>
 <body>
-    <h1>Hello {{ context.name }}</h1>
+    <h1>{{ context.sarlavha }}</h1>
     <div class="flex-container">
-            {% for item in context.imglist %}
-                
-                    <div class="flex-item">
-                        <img src={{item}} alt="photo"><br>
-                        <h1 class="rang">Randomuser {{ context.gender }}</h1> 
-                    </div>
-                    
-               
-            {% endfor %}
+        {% for item in context.catlist %}
+            <div class="flex-item">
+                <img src="{{item}}" alt="photo cat">
+                <h1 class="rang"> Randomm {{ context.cat }}</h1>
+            </div>
+        {% endfor %}
     </div>
-    
 
 </body>
 </html>
