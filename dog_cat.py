@@ -1,15 +1,17 @@
 from flask import Flask, request, render_template
 import requests
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__)
+load_dotenv()
 
 @app.route('/')
 def homecat():
-    form = request.form
+    title = 'home'
     return render_template('home.html',
-                            context = {
-                                'form':form
-                            }
+                           context={'title':title}
+                            
     )
 
 
@@ -55,8 +57,5 @@ def randomdog(dog: str):
                             }
     )
 
-
-
-
 if __name__ == "__main__":
-    app.run(debug = True, port = 8000)
+    app.run(debug = os.getenv("DEBUG"), port = os.getenv("PORT"))
